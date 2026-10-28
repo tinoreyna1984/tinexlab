@@ -1,0 +1,258 @@
+{
+  "nav": {
+    "home": "Início",
+    "cv": "CV",
+    "portfolio": "Portfólio",
+    "interests": "Interesses",
+    "contact": "Contato",
+    "menu": "Menu",
+    "close": "Fechar",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
+  "metadata": {
+    "siteTitle": "Tinexlab | Tino Reyna",
+    "siteDescription": "Site pessoal de Tino Reyna, engenheiro estatístico e de computação e desenvolvedor web.",
+    "homeTitle": "Início",
+    "cvTitle": "CV",
+    "portfolioTitle": "Portfólio",
+    "interestsTitle": "Interesses",
+    "contactTitle": "Contato"
+  },
+  "home": {
+    "eyebrow": "Engenheiro estatístico e de computação",
+    "title": "Construo soluções informáticas com propósito.",
+    "role": "Desenvolvedor web",
+    "intro": "Crio e mantenho soluções digitais para organizações que buscam combinar clareza, confiabilidade e excelência técnica.",
+    "location": "Lima, Peru",
+    "email": "tinoreyna1984@gmail.com",
+    "phone": "+51 960 992 996",
+    "ctaCv": "Conheça minha experiência",
+    "ctaPortfolio": "Ver portfólio",
+    "ctaContact": "Vamos conversar",
+    "availability": "Disponível para conversar sobre novos projetos",
+    "highlightsTitle": "Uma visão rápida",
+    "yearsLabel": "anos desenvolvendo software",
+    "projectsLabel": "projetos no portfólio",
+    "techLabel": "tecnologias preferidas",
+    "techValue": "Java + Spring Boot",
+    "bioImageAlt": "Foto de perfil de Tino Reyna"
+  },
+  "cv": {
+    "eyebrow": "Trajetória profissional",
+    "title": "CV",
+    "description": "Experiência, educação e habilidades desenvolvidas desde 2010.",
+    "born": "Nascido em 05/05/1984, em Lima, Peru.",
+    "experience": "Experiência profissional",
+    "education": "Educação",
+    "skills": "Habilidades",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "management": "Gestão e colaboração",
+    "preferredTools": "Ferramentas preferidas",
+    "preferredTechnologies": "Tecnologias preferidas",
+    "preferredTechnologiesValue": "Java + Spring Boot",
+    "others": "Outros conhecimentos",
+    "languages": "Idiomas",
+    "native": "Nativo",
+    "intermediate": "Intermediário",
+    "current": "atual",
+    "work": [
+      {
+        "company": "Scotiabank Perú",
+        "role": "Especialista de TI",
+        "location": "Lima, Peru",
+        "period": "2025 - atual",
+        "description": "Gestão integral do Scotiabank Telebanking."
+      },
+      {
+        "company": "Valtx Perú",
+        "role": "Programador-analista Java",
+        "location": "Lima, Peru",
+        "period": "2024 - 2025",
+        "description": "Terceirização para o Scotiabank Telebanking. Implementei o CVV dinâmico para proteger compras online com cartões de débito."
+      },
+      {
+        "company": "Freelance",
+        "role": "Desenvolvedor freelance",
+        "location": "Guayaquil, Equador",
+        "period": "2022 - 2023",
+        "description": "Desenvolvimento freelance em React, Laravel, Java + Spring Boot, Angular e WordPress para diferentes objetivos."
+      },
+      {
+        "company": "Ayesa Perú",
+        "role": "Consultor",
+        "location": "Lima, Peru (escritório local)",
+        "period": "2018 - 2021",
+        "description": "Análise, desenvolvimento e suporte backend (C, Oracle PL/SQL, Linux). Destaque: otimização de processos para a área técnica da Enel Peru (2019)."
+      },
+      {
+        "company": "IQ Corporation SAC (atualmente IQProsoft)",
+        "role": "Analista",
+        "location": "Lima, Peru (escritório local)",
+        "period": "2015 - 2018",
+        "description": "Desenvolvimento para POS (Ingenico C/C++, Android). Implementações de remessas e segurança no Interbank Agente e aquisição de seguros para a GCS (República Dominicana)."
+      },
+      {
+        "company": "Novatronic SAC",
+        "role": "Programador",
+        "location": "Lima, Peru (escritório local)",
+        "period": "2012 - 2015",
+        "description": "Desenvolvimento de sistemas EFT (C, Oracle PL/SQL). Destaque: Banca Móvel BBVA-Telefónica (2013)."
+      },
+      {
+        "company": "ICQ Creative SAC",
+        "role": "Assistente de engenharia",
+        "location": "Lima, Peru (escritório local)",
+        "period": "2010 - 2012",
+        "description": "Desenvolvimento de videogames (Visual C++) em casinoval.com: 101 Lions, Wild Cleopatra e outros."
+      }
+    ],
+    "educationItems": [
+      {
+        "institution": "Universidade Nacional Agrária La Molina",
+        "degree": "Título profissional",
+        "location": "Lima, Peru",
+        "period": "2017",
+        "description": "Engenheiro Estatístico e de Computação."
+      },
+      {
+        "institution": "Universidade Nacional Agrária La Molina",
+        "degree": "Pós-graduação",
+        "location": "Lima, Peru",
+        "period": "2016 - 2017",
+        "description": "Especialização em Marketing e Finanças."
+      },
+      {
+        "institution": "Universidade Nacional Agrária La Molina",
+        "degree": "Bacharelado",
+        "location": "Lima, Peru",
+        "period": "2001 - 2011",
+        "description": "Engenharia Estatística e Ciência da Computação."
+      }
+    ],
+    "skillsData": {
+      "frontend": [
+        "HTML + CSS",
+        "SASS",
+        "JavaScript (ES6+) + TypeScript",
+        "Bootstrap (5+) + TailwindCSS",
+        "React + Redux Toolkit + Next.js",
+        "Angular (15+)"
+      ],
+      "backend": [
+        "Java (17+)",
+        "Spring Boot + Security + Data JPA",
+        "Node.js + Express",
+        "PHP + Laravel",
+        "Docker",
+        "Microsserviços"
+      ],
+      "management": [
+        "Git",
+        "Atlassian (Jira + Bitbucket + Confluence)",
+        "Agile"
+      ],
+      "tools": [
+        "Visual Studio Code",
+        "IntelliJ IDEA",
+        "Notepad++",
+        "Brave Web Browser",
+        "PuTTY",
+        "Postman"
+      ],
+      "others": [
+        "Linux/WSL",
+        "WordPress",
+        "Linguagem C",
+        "Linguagem SQL"
+      ]
+    },
+    "languagesData": [
+      {
+        "name": "Espanhol",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglês",
+        "level": "Intermediário"
+      },
+      {
+        "name": "Português",
+        "level": "Intermediário"
+      }
+    ]
+  },
+  "interests": {
+    "eyebrow": "Além do código",
+    "title": "Interesses",
+    "description": "Atividades que me ajudam a manter a curiosidade, a disciplina e o equilíbrio.",
+    "items": [
+      {
+        "title": "Música",
+        "description": "Gosto de tocar instrumentos de cordas: baixo e violão, especialmente o primeiro.",
+        "image": "/interests/music.png",
+        "alt": "Instrumentos musicais"
+      },
+      {
+        "title": "Leitura",
+        "description": "Leio a Bíblia, alguns clássicos e livros de filosofia.",
+        "image": "/interests/reading.jpg",
+        "alt": "Livros abertos"
+      },
+      {
+        "title": "Esportes de combate",
+        "description": "Treino esportes de combate como prática de constância e autocontrole.",
+        "image": "/interests/combat-sports.png",
+        "alt": "Treinamento de esportes de combate"
+      }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Trabalho selecionado",
+    "title": "Portfólio",
+    "description": "Projetos pessoais e profissionais construídos com diferentes tecnologias e objetivos.",
+    "filterLabel": "Filtrar por tecnologia",
+    "all": "Todos",
+    "clear": "Limpar filtros",
+    "noResults": "Não há projetos que correspondam aos filtros selecionados.",
+    "repo": "Repositório",
+    "site": "Ver site",
+    "year": "Ano",
+    "technologies": "Tecnologias",
+    "projectImageAlt": "Prévia do projeto"
+  },
+  "contact": {
+    "eyebrow": "Vamos conversar",
+    "title": "Contato",
+    "description": "Você tem uma ideia, projeto ou dúvida? Envie uma mensagem e responderei em breve.",
+    "name": "Nome",
+    "email": "E-mail",
+    "message": "Mensagem",
+    "submit": "Enviar mensagem",
+    "sending": "Enviando…",
+    "success": "Sua mensagem foi enviada com sucesso. Obrigado por escrever.",
+    "error": "Não foi possível enviar sua mensagem. Tente novamente.",
+    "required": "Preencha este campo.",
+    "invalidEmail": "Digite um e-mail válido.",
+    "social": "Siga-me",
+    "whatsapp": "Escreva pelo WhatsApp",
+    "honeypot": "Deixe este campo vazio"
+  },
+  "footer": {
+    "copyright": "Tinexlab © 2026. Todos os direitos reservados.",
+    "links": "Links"
+  },
+  "themeToast": {
+    "system": "Tema: sistema",
+    "light": "Tema: claro",
+    "dark": "Tema: escuro",
+    "dismiss": "Fechar mensagem"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "A página que você procura não existe ou mudou de endereço. Você pode voltar ao início para continuar explorando.",
+    "imageAlt": "Ilustração de uma página não encontrada",
+    "backHome": "Voltar ao início"
+  }
+}

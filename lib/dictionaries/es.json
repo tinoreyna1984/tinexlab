@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "cv": "CV",
+    "portfolio": "Portafolio",
+    "interests": "Intereses",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
+  "metadata": {
+    "siteTitle": "Tinexlab | Tino Reyna",
+    "siteDescription": "Sitio personal de Tino Reyna, ingeniero estadístico e informático y desarrollador web.",
+    "homeTitle": "Inicio",
+    "cvTitle": "CV",
+    "portfolioTitle": "Portafolio",
+    "interestsTitle": "Intereses",
+    "contactTitle": "Contacto"
+  },
+  "home": {
+    "eyebrow": "Ingeniero estadístico e informático",
+    "title": "Construyo soluciones informáticas con propósito.",
+    "role": "Desarrollador web",
+    "intro": "Creo y mantengo soluciones digitales para organizaciones que buscan combinar claridad, confiabilidad y excelencia técnica.",
+    "location": "Lima, Perú",
+    "email": "tinoreyna1984@gmail.com",
+    "phone": "+51 960 992 996",
+    "ctaCv": "Conoce mi experiencia",
+    "ctaPortfolio": "Ver portafolio",
+    "ctaContact": "Hablemos",
+    "availability": "Disponible para conversar sobre nuevos proyectos",
+    "highlightsTitle": "Una mirada rápida",
+    "yearsLabel": "años desarrollando software",
+    "projectsLabel": "proyectos en el portafolio",
+    "techLabel": "tecnologías preferidas",
+    "techValue": "Java + Spring Boot",
+    "bioImageAlt": "Foto de perfil de Tino Reyna"
+  },
+  "cv": {
+    "eyebrow": "Trayectoria profesional",
+    "title": "CV",
+    "description": "Experiencia, educación y capacidades que he desarrollado desde 2010.",
+    "born": "Nacido el 05/05/1984, en Lima, Perú.",
+    "experience": "Experiencia laboral",
+    "education": "Educación",
+    "skills": "Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "management": "Gestión y colaboración",
+    "preferredTools": "Herramientas preferidas",
+    "preferredTechnologies": "Tecnologías preferidas",
+    "preferredTechnologiesValue": "Java + Spring Boot",
+    "others": "Otros conocimientos",
+    "languages": "Idiomas",
+    "native": "Nativo",
+    "intermediate": "Intermedio",
+    "current": "actualidad",
+    "work": [
+      { "company": "Scotiabank Perú", "role": "IT Expert", "location": "Lima, Perú", "period": "2025 - actualidad", "description": "Gestión integral de Scotiabank Telebanking." },
+      { "company": "Valtx Perú", "role": "Java Programmer-Analyst", "location": "Lima, Perú", "period": "2024 - 2025", "description": "Outsourcing para Scotiabank Telebanking. Implementé el CVV dinámico para asegurar compras en línea con tarjetas de débito." },
+      { "company": "Freelance", "role": "Desarrollador freelance", "location": "Guayaquil, Ecuador", "period": "2022 - 2023", "description": "Desarrollo freelance en React, Laravel, Java + Spring Boot, Angular y WordPress para distintos propósitos." },
+      { "company": "Ayesa Perú", "role": "Consultor", "location": "Lima, Perú (oficina local)", "period": "2018 - 2021", "description": "Análisis, desarrollo y soporte backend (C, Oracle PL/SQL, Linux). Proyecto destacado: optimización de procesos para el área técnica de Enel Perú (2019)." },
+      { "company": "IQ Corporation SAC (hoy IQProsoft)", "role": "Analista", "location": "Lima, Perú (oficina local)", "period": "2015 - 2018", "description": "Desarrollo para POS (Ingenico C/C++, Android). Implementaciones de remesas y seguridad en Interbank Agente y adquisición de seguros para GCS (República Dominicana)." },
+      { "company": "Novatronic SAC", "role": "Programador", "location": "Lima, Perú (oficina local)", "period": "2012 - 2015", "description": "Desarrollo de sistemas EFT (C, Oracle PL/SQL). Proyecto destacado: Banca Móvil BBVA-Telefónica (2013)." },
+      { "company": "ICQ Creative SAC", "role": "Asistente de ingeniería", "location": "Lima, Perú (oficina local)", "period": "2010 - 2012", "description": "Desarrollo de videojuegos (Visual C++) para casinoval.com: 101 Lions, Wild Cleopatra, entre otros." }
+    ],
+    "educationItems": [
+      { "institution": "Universidad Nacional Agraria La Molina", "degree": "Título profesional", "location": "Lima, Perú", "period": "2017", "description": "Ingeniero Estadístico e Informático." },
+      { "institution": "Universidad Nacional Agraria La Molina", "degree": "Posgrado", "location": "Lima, Perú", "period": "2016 - 2017", "description": "Especialización en Marketing y Finanzas." },
+      { "institution": "Universidad Nacional Agraria La Molina", "degree": "Bachillerato", "location": "Lima, Perú", "period": "2001 - 2011", "description": "Ingeniería Estadística e Informática." }
+    ],
+    "skillsData": {
+      "frontend": ["HTML + CSS", "SASS", "JavaScript (ES6+) + TypeScript", "Bootstrap (5+) + TailwindCSS", "React + Redux Toolkit + Next.js", "Angular (15+)"],
+      "backend": ["Java (17+)", "Spring Boot + Security + Data JPA", "Node.js + Express", "PHP + Laravel", "Docker", "Microservicios"],
+      "management": ["Git", "Atlassian (Jira + Bitbucket + Confluence)", "Agile"],
+      "tools": ["Visual Studio Code", "IntelliJ IDEA", "Notepad++", "Brave Web Browser", "PuTTY", "Postman"],
+      "others": ["Linux/WSL", "WordPress", "Lenguaje C", "Lenguaje SQL"]
+    },
+    "languagesData": [
+      { "name": "Español", "level": "Nativo" },
+      { "name": "Inglés", "level": "Intermedio" },
+      { "name": "Portugués", "level": "Intermedio" }
+    ]
+  },
+  "interests": {
+    "eyebrow": "Más allá del código",
+    "title": "Intereses",
+    "description": "Las actividades que me ayudan a mantener la curiosidad, la disciplina y el equilibrio.",
+    "items": [
+      { "title": "Música", "description": "Me gusta tocar instrumentos de cuerda: bajo y guitarra, especialmente el primero.", "image": "/interests/music.png", "alt": "Instrumentos musicales" },
+      { "title": "Lectura", "description": "Leo la Biblia, algunos clásicos y libros de filosofía.", "image": "/interests/reading.jpg", "alt": "Libros abiertos" },
+      { "title": "Deportes de combate", "description": "Entreno deportes de combate como una práctica de constancia y autocontrol.", "image": "/interests/combat-sports.png", "alt": "Entrenamiento de deportes de combate" }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Trabajo seleccionado",
+    "title": "Portafolio",
+    "description": "Proyectos personales y profesionales construidos con distintas tecnologías y objetivos.",
+    "filterLabel": "Filtrar por tecnología",
+    "all": "Todos",
+    "clear": "Limpiar filtros",
+    "noResults": "No hay proyectos que coincidan con los filtros seleccionados.",
+    "repo": "Repositorio",
+    "site": "Ver sitio",
+    "year": "Año",
+    "technologies": "Tecnologías",
+    "projectImageAlt": "Vista previa del proyecto"
+  },
+  "contact": {
+    "eyebrow": "Conversemos",
+    "title": "Contacto",
+    "description": "¿Tienes una idea, proyecto o consulta? Envíame un mensaje y te responderé pronto.",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "submit": "Enviar mensaje",
+    "sending": "Enviando…",
+    "success": "Tu mensaje fue enviado correctamente. Gracias por escribirme.",
+    "error": "No pudimos enviar el mensaje. Inténtalo nuevamente.",
+    "required": "Completa este campo.",
+    "invalidEmail": "Ingresa un correo electrónico válido.",
+    "social": "Sígueme",
+    "whatsapp": "Escríbeme por WhatsApp",
+    "honeypot": "Deja este campo vacío"
+  },
+  "footer": {
+    "copyright": "Tinexlab © 2026. Todos los derechos reservados.",
+    "links": "Enlaces"
+  },
+  "themeToast": {
+    "system": "Tema: sistema",
+    "light": "Tema: claro",
+    "dark": "Tema: oscuro",
+    "dismiss": "Cerrar mensaje"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "La página que buscas no existe o cambió de dirección. Puedes volver al inicio para seguir explorando.",
+    "imageAlt": "Ilustración de una página no encontrada",
+    "backHome": "Volver al inicio"
+  }
+}

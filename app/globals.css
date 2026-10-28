@@ -1,26 +1,401 @@
 @import "tailwindcss";
 
+/* Tokens de tema: valores claros por defecto. */
 :root {
-  --background: #ffffff;
+  --background: #fefefe;
   --foreground: #171717;
+  --muted: #52525b;
+  --border: #d4d4d8;
+  --surface: #ffffff;
+  --surface-muted: #f4f4f5;
+  --accent: #047857;
+  --accent-strong: #065f46;
+  --accent-contrast: #ffffff;
+
+  /* Botones de acción. */
+  --btn-bg: #000000;
+  --btn-fg: #ffffff;
+  --btn-shadow-y: 17px;
+  --btn-shadow-blur: 35px;
+  --btn-shadow-spread: -11px;
+  --btn-shadow-color: rgb(0 0 0 / 0.7);
+
+  /* Títulos. */
+  --heading-shadow: 4px 4px 11px rgb(0 0 0 / 0.24);
+  --heading-glow: none;
+}
+
+/* Tema oscuro: atributo explícito de ThemeToggle. */
+[data-theme="dark"] {
+  --background: #000000;
+  --foreground: #ededed;
+  --muted: #a1a1aa;
+  --border: #3f3f46;
+  --surface: #111113;
+  --surface-muted: #1c1c1f;
+  --accent: #00ffaa;
+  --accent-strong: #00ffcc;
+  --accent-contrast: #052e21;
+
+  --btn-bg: #ffffff;
+  --btn-fg: #000000;
+  --btn-shadow-y: 0px;
+  --btn-shadow-blur: 51px;
+  --btn-shadow-spread: 5px;
+  --btn-shadow-color: hsl(0 0% 100% / 0.95);
+
+  --heading-shadow: none;
+  --heading-glow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 2px #0fa,
+    0 0 4px #0fa, 0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa;
+}
+
+/* Tema oscuro antes de la hidratación, cuando aún no existe data-theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #000000;
+    --foreground: #ededed;
+    --muted: #a1a1aa;
+    --border: #3f3f46;
+    --surface: #111113;
+    --surface-muted: #1c1c1f;
+    --accent: #00ffaa;
+    --accent-strong: #00ffcc;
+    --accent-contrast: #052e21;
+
+    --btn-bg: #ffffff;
+    --btn-fg: #000000;
+    --btn-shadow-y: 0px;
+    --btn-shadow-blur: 51px;
+    --btn-shadow-spread: 5px;
+    --btn-shadow-color: hsl(0 0% 100% / 0.95);
+
+    --heading-shadow: none;
+    --heading-glow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 2px #0fa,
+      0 0 4px #0fa, 0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-contrast: var(--accent-contrast);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-quicksand);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading), var(--font-geist-sans), sans-serif;
+    text-shadow: var(--heading-shadow);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Botones de acción: base compartida. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.5s ease-in-out, background-color 0.3s ease,
+      color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .btn:hover:not(:disabled),
+  .btn:focus-visible:not(:disabled) {
+    box-shadow: 0 var(--btn-shadow-y) var(--btn-shadow-blur)
+      var(--btn-shadow-spread) var(--btn-shadow-color);
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* Principal: relleno sólido que se invierte con el tema. */
+  .btn-primary {
+    background-color: var(--btn-bg);
+    color: var(--btn-fg);
+  }
+
+  /* Secundaria: contorno del color del texto del tema. */
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--foreground);
+  }
+
+  /* Compacta: filtros y controles de la cabecera. */
+  .btn-compact {
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+  }
+
+  /* Filtros seleccionados: relleno sólido, igual que el botón principal. */
+  .btn[aria-pressed="true"]:not(:disabled) {
+    background-color: var(--btn-bg);
+    color: var(--btn-fg);
+    border-color: var(--btn-bg);
+    font-weight: 600;
+  }
+
+  /* Mensaje de confirmación (ThemeToast): fijo en la parte inferior.
+     Las duraciones de las animaciones (0.3s) DEBEN coincidir con las
+     constantes fadeMs (300 ms) de components/theme-toast.tsx. */
+  .theme-toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    max-width: calc(100vw - 2rem);
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--foreground);
+    border-radius: 9999px;
+    background-color: var(--surface);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.25);
+  }
+
+  .theme-toast:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .theme-toast--apareciendo {
+    animation: theme-toast-fade-in 0.3s ease-out both;
+  }
+
+  .theme-toast--visible {
+    opacity: 1;
+    animation: none;
+  }
+
+  .theme-toast--desapareciendo {
+    animation: theme-toast-fade-out 0.3s ease-in both;
+  }
+
+  /* Título con el efecto neón del sitio de referencia. */
+  .title-neon {
+    animation: none;
+  }
+
+  [data-theme="dark"] .title-neon {
+    color: #ffffff;
+    text-shadow: var(--heading-glow);
+    animation: neon-pulse 0.8s infinite alternate;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .title-neon {
+      color: #ffffff;
+      text-shadow: var(--heading-glow);
+      animation: neon-pulse 0.8s infinite alternate;
+    }
+  }
+
+  /* Panel del menú desplegable móvil: apertura y cierre animados.
+     Solo aplica donde aparece el botón hamburguesa (< 1024 px); en
+     escritorio la navegación la gobiernan las utilidades lg:! del
+     componente. El estado se deriva de data-open: cerrado oculta el
+     panel con visibility (no display:none) para que la transición de
+     salida pueda reproducirse, y pointer-events:none evita toques
+     accidentales mientras cierra. */
+  @media (max-width: 1023px) {
+    .site-nav-panel {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--background);
+      padding: 1rem;
+      box-shadow:
+        0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition:
+        opacity 0.2s ease-in,
+        transform 0.2s ease-in,
+        visibility 0s linear 0.2s;
+    }
+
+    .site-nav-panel[data-open="true"] {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      transition:
+        opacity 0.25s ease-out,
+        transform 0.25s ease-out,
+        visibility 0s linear 0s;
+    }
+  }
+
+  /* Splash screen de carga: capa fija a pantalla completa con la imagen de
+     bienvenida y el porcentaje abajo-izquierda. Las duraciones de las
+     animaciones (0.3s) DEBEN coincidir con las constantes fadeMs (300 ms)
+     de components/splash-screen.tsx. */
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1rem;
+    background-color: var(--background);
+    /* Bloquea toques accidentales sobre el contenido cubierto; no afecta el
+       teclado ni el árbol de foco (el overlay es aria-hidden). */
+    pointer-events: auto;
+  }
+
+  /* Imagen de bienvenida: escala sin recorte ni deformación en cualquier
+     tamaño de pantalla (object-contain) sobre el fondo del tema. */
+  .splash__image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Porcentaje de carga: anclado abajo-izquierda, cifras tabulares para
+     que el ancho no salte al actualizar, con safe-area en móviles. */
+  .splash__progress {
+    position: absolute;
+    left: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    color: var(--foreground);
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .splash--apareciendo {
+    animation: splash-fade-in 0.3s ease-out both;
+  }
+
+  .splash--cargando {
+    opacity: 1;
+    animation: none;
+  }
+
+  .splash--desapareciendo {
+    animation: splash-fade-out 0.3s ease-in both;
+  }
+
+  /* Visitas repetidas de la misma sesión: el script inline pre-paint marca
+     data-splash="seen" en <html> y el splash nunca se pinta. La regla vive
+     fuera de las fases porque debe ocultarlo aunque el SSR lo haya pintado. */
+  html[data-splash="seen"] .splash {
+    display: none;
+  }
+}
+
+@keyframes neon-pulse {
+  from {
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 2px #0fa,
+      0 0 4px #0fa, 0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa;
+  }
+  to {
+    text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 1px #fff, 0 0 2px #0fa,
+      0 0 2px #0fa, 0 0 2px #0fa, 0 0 1px #0fa, 0 0 1px #0fa;
+  }
+}
+
+@keyframes theme-toast-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes theme-toast-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes splash-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splash-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-neon {
+    animation: none !important;
+  }
+
+  .theme-toast {
+    animation: none !important;
+  }
+
+  .site-nav-panel {
+    transition: none !important;
+  }
+
+  .splash {
+    animation: none !important;
+  }
 }
