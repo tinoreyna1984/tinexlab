@@ -37,6 +37,9 @@ async function HomePageContent({ params }: { params: Promise<{ lang: string }> }
           <p className="mb-5 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">
             {home.eyebrow}
           </p>
+          <h2 className="mb-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            {home.name}
+          </h2>
           <h1 className="title-neon max-w-3xl text-5xl font-bold tracking-[-0.04em] text-foreground sm:text-7xl">
             {home.title}
           </h1>

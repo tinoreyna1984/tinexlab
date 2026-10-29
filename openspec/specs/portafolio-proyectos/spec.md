@@ -7,7 +7,7 @@ Permite explorar los proyectos profesionales y personales de Tinexlab mediante i
 ## Requirements
 
 ### Requirement: Catálogo de proyectos
-La página de Portafolio SHALL mostrar los 19 proyectos migrados, cada uno con título, descripción, año, tecnologías, imagen y enlaces disponibles.
+La página de Portafolio SHALL mostrar los 19 proyectos migrados, cada uno con título, descripción, año, tecnologías, imagen y enlaces disponibles. La fuente mantenible del catálogo SHALL ser un archivo CSV con cabecera y registros compatibles con todos los campos requeridos por `Project`, incluidos los valores localizados y los enlaces opcionales.
 
 #### Scenario: Catálogo inicial
 - **WHEN** una persona visita Portafolio sin filtros
@@ -17,8 +17,12 @@ La página de Portafolio SHALL mostrar los 19 proyectos migrados, cada uno con t
 - **WHEN** un proyecto no tiene sitio publicado
 - **THEN** el sistema conserva el enlace al repositorio y no muestra un enlace de sitio inválido
 
+#### Scenario: Registro CSV válido
+- **WHEN** el catálogo se carga desde un CSV con cabecera y un registro compatible con `Project`
+- **THEN** el sistema transforma ese registro en un proyecto con sus textos localizados, tags, imagen y enlaces opcionales
+
 ### Requirement: Filtrado por tags
-La página de Portafolio SHALL permitir filtrar el catálogo por uno o más tags de tecnología y SHALL ofrecer una forma de regresar al catálogo completo.
+La página de Portafolio SHALL permitir filtrar el catálogo por uno o más tags de tecnología y SHALL ofrecer una forma de regresar al catálogo completo. Los controles de filtro SHALL presentar estados activo, inactivo, conteo, foco y limpieza visualmente diferenciados sin cambiar su semántica ni la del parámetro `tags` de la URL.
 
 #### Scenario: Filtro por tecnología
 - **WHEN** una persona selecciona el tag `React`
@@ -31,6 +35,10 @@ La página de Portafolio SHALL permitir filtrar el catálogo por uno o más tags
 #### Scenario: Tag sin coincidencias
 - **WHEN** una combinación de tags no tiene proyectos asociados
 - **THEN** el sistema informa que no existen resultados y mantiene disponible la acción de limpiar filtros
+
+#### Scenario: Navegación accesible del filtro
+- **WHEN** una persona navega los filtros mediante teclado o usa un tema claro u oscuro
+- **THEN** cada control conserva un foco visible, un estado seleccionado perceptible y contraste suficiente sin perder su etiqueta accesible
 
 ### Requirement: Portafolio localizado
 Los títulos, descripciones, tags visibles y controles del Portafolio SHALL aparecer en español, inglés o portugués según el locale de la ruta.

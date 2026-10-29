@@ -61,14 +61,14 @@ export function PortfolioGrid({
 
   return (
     <div>
-      <fieldset className="rounded-2xl border border-border bg-surface p-5">
-        <legend className="px-2 text-sm font-semibold text-foreground">{labels.filterLabel}</legend>
-        <div className="flex flex-wrap gap-2" role="group" aria-label={labels.filterLabel}>
+      <fieldset className="portfolio-filters rounded-3xl border border-border bg-surface p-5 md:p-6">
+        <legend className="px-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">{labels.filterLabel}</legend>
+        <div className="mt-2 flex flex-wrap gap-2.5" role="group" aria-label={labels.filterLabel}>
           <button
             type="button"
             onClick={() => updateTags([])}
             aria-pressed={selected.length === 0}
-            className="btn btn-compact btn-primary w-auto"
+            className="filter-chip btn btn-compact btn-primary w-auto"
           >
             {labels.all}
           </button>
@@ -80,7 +80,7 @@ export function PortfolioGrid({
                 type="button"
                 onClick={() => toggleTag(tag.slug)}
                 aria-pressed={active}
-                className="btn btn-compact btn-secondary w-auto"
+                className="filter-chip btn btn-compact btn-secondary w-auto"
               >
                 {tag.label}
               </button>
@@ -90,11 +90,11 @@ export function PortfolioGrid({
       </fieldset>
 
       <div className="mt-8 flex items-center justify-between gap-4">
-        <p className="text-sm text-muted" aria-live="polite">
-          {filteredProjects.length} / {projects.length}
+        <p className="results-count text-sm text-muted" aria-live="polite">
+          <span className="font-mono text-lg font-bold text-foreground">{filteredProjects.length}</span> / {projects.length}
         </p>
         {selected.length > 0 ? (
-          <button type="button" onClick={() => updateTags([])} className="text-sm font-semibold text-accent underline underline-offset-4">
+            <button type="button" onClick={() => updateTags([])} className="filter-clear text-sm font-semibold text-accent underline underline-offset-4">
             {labels.clear}
           </button>
         ) : null}
