@@ -7,11 +7,16 @@ Ofrece un canal de contacto confiable y localizado para que visitantes envíen m
 ## Requirements
 
 ### Requirement: Formulario de contacto
-La página de Contacto SHALL ofrecer campos para nombre, correo electrónico y mensaje, además de enlaces a redes sociales y WhatsApp.
+La página de Contacto SHALL ofrecer campos para nombre, correo electrónico y mensaje, además de enlaces a redes sociales y WhatsApp. Los enlaces de redes sociales SHALL mostrar visualmente el ícono correspondiente y conservar un nombre accesible.
 
 #### Scenario: Visualización del formulario
 - **WHEN** una persona visita Contacto
 - **THEN** encuentra los campos requeridos, una acción de envío y los enlaces sociales disponibles
+
+#### Scenario: Enlaces sociales con íconos
+- **WHEN** una persona visita la sección de redes sociales
+- **THEN** cada enlace muestra el ícono correspondiente a LinkedIn, Instagram, X, Facebook o GitHub, sin presentar el nombre como etiqueta visual principal
+- **AND** cada enlace conserva un nombre accesible que identifica la red social
 
 #### Scenario: Formulario localizado
 - **WHEN** una persona visita Contacto en inglés o portugués
