@@ -226,19 +226,11 @@
   "contact": {
     "eyebrow": "Let's talk",
     "title": "Contact",
-    "description": "Have an idea, project, or question? Send me a message and I will get back to you soon.",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "submit": "Send message",
-    "sending": "Sending…",
-    "success": "Your message was sent successfully. Thanks for reaching out.",
-    "error": "We could not send your message. Please try again.",
-    "required": "Complete this field.",
-    "invalidEmail": "Enter a valid email address.",
+    "description": "Have an idea, project, or question? Write to me directly and I will get back to you soon.",
+    "emailLabel": "Email",
+    "emailInstructions": "Click the address to open your email application.",
     "social": "Follow me",
-    "whatsapp": "Message me on WhatsApp",
-    "honeypot": "Leave this field empty"
+    "whatsapp": "Message me on WhatsApp"
   },
   "footer": {
     "copyright": "Tinexlab © 2026. All rights reserved.",

@@ -112,19 +112,11 @@
   "contact": {
     "eyebrow": "Conversemos",
     "title": "Contacto",
-    "description": "¿Tienes una idea, proyecto o consulta? Envíame un mensaje y te responderé pronto.",
-    "name": "Nombre",
-    "email": "Correo electrónico",
-    "message": "Mensaje",
-    "submit": "Enviar mensaje",
-    "sending": "Enviando…",
-    "success": "Tu mensaje fue enviado correctamente. Gracias por escribirme.",
-    "error": "No pudimos enviar el mensaje. Inténtalo nuevamente.",
-    "required": "Completa este campo.",
-    "invalidEmail": "Ingresa un correo electrónico válido.",
+    "description": "¿Tienes una idea, proyecto o consulta? Escríbeme directamente y te responderé pronto.",
+    "emailLabel": "Correo electrónico",
+    "emailInstructions": "Haz clic en la dirección para abrir tu aplicación de correo.",
     "social": "Sígueme",
-    "whatsapp": "Escríbeme por WhatsApp",
-    "honeypot": "Deja este campo vacío"
+    "whatsapp": "Escríbeme por WhatsApp"
   },
   "footer": {
     "copyright": "Tinexlab © 2026. Todos los derechos reservados.",

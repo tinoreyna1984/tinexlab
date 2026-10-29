@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
 
-import { ContactForm } from "@/components/contact-form";
 import { PageFallback } from "@/components/page-fallback";
 import { PageContainer } from "@/components/page-container";
 import { SectionHeading } from "@/components/section-heading";
@@ -56,29 +55,36 @@ async function ContactPageContent({ params }: { params: Promise<{ lang: string }
   return (
     <PageContainer>
       <SectionHeading eyebrow={contact.eyebrow} title={contact.title} description={contact.description} />
-      <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_0.7fr] lg:gap-16">
-        <div className="rounded-3xl border border-border bg-surface p-6 sm:p-8">
-          <ContactForm labels={contact} />
+      <div className="mt-12 rounded-3xl border border-border bg-surface p-6 sm:p-8 lg:p-10">
+        <div className="grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(16rem,0.8fr)] md:items-stretch md:gap-10 lg:gap-16">
+          <section className="flex min-w-0 flex-col justify-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted">{contact.emailLabel}</p>
+            <a href="mailto:tinoreyna1984@gmail.com" className="mt-4 break-words text-[clamp(1.5rem,4vw,2.75rem)] font-semibold leading-tight text-accent underline decoration-accent/40 underline-offset-8 transition hover:text-accent-strong focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+              tinoreyna1984@gmail.com
+            </a>
+            <p className="mt-5 max-w-xl text-sm leading-6 text-muted">{contact.emailInstructions}</p>
+          </section>
+
+          <aside className="min-w-0 border-t border-border pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0">
+            <h2 className="text-xl font-semibold text-foreground">{contact.social}</h2>
+            <ul className="mt-5 flex flex-wrap gap-3">
+              {socialLinks.map(([label, href, icon]) => (
+                <li key={label}>
+                  <Link href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-medium text-muted transition hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                    <SocialIcon name={icon} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link href="https://wa.link/o4xl2a" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex max-w-full font-semibold text-accent underline underline-offset-4 hover:text-accent-strong focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+              <span className="break-words">{contact.whatsapp}</span> <span aria-hidden="true" className="ml-2 shrink-0">↗</span>
+            </Link>
+            <div className="mt-8 rounded-2xl bg-surface-muted p-5 text-sm text-muted">
+              <p className="font-semibold text-foreground">{home.email}</p>
+              <p className="mt-2">{home.phone}</p>
+            </div>
+          </aside>
         </div>
-        <aside className="lg:pt-4">
-          <h2 className="text-xl font-semibold text-foreground">{contact.social}</h2>
-          <ul className="mt-5 flex flex-wrap gap-3 lg:flex-col lg:items-start">
-            {socialLinks.map(([label, href, icon]) => (
-              <li key={label}>
-                <Link href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-medium text-muted transition hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-                  <SocialIcon name={icon} />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link href="https://wa.link/o4xl2a" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex font-semibold text-accent underline underline-offset-4 hover:text-accent-strong">
-            {contact.whatsapp} <span aria-hidden="true" className="ml-2">↗</span>
-          </Link>
-          <div className="mt-10 rounded-2xl bg-surface-muted p-5 text-sm text-muted">
-            <p className="font-semibold text-foreground">{home.email}</p>
-            <p className="mt-2">{home.phone}</p>
-          </div>
-        </aside>
       </div>
     </PageContainer>
   );
