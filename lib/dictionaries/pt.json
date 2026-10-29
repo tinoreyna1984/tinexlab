@@ -233,7 +233,7 @@
     "whatsapp": "Escreva pelo WhatsApp"
   },
   "footer": {
-    "copyright": "Tinexlab © 2026. Todos os direitos reservados.",
+    "copyright": "Tinexlab © {year}. Todos os direitos reservados.",
     "links": "Links"
   },
   "themeToast": {

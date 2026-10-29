@@ -233,7 +233,7 @@
     "whatsapp": "Message me on WhatsApp"
   },
   "footer": {
-    "copyright": "Tinexlab © 2026. All rights reserved.",
+    "copyright": "Tinexlab © {year}. All rights reserved.",
     "links": "Links"
   },
   "themeToast": {

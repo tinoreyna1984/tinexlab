@@ -119,7 +119,7 @@
     "whatsapp": "Escríbeme por WhatsApp"
   },
   "footer": {
-    "copyright": "Tinexlab © 2026. Todos los derechos reservados.",
+    "copyright": "Tinexlab © {year}. Todos los derechos reservados.",
     "links": "Enlaces"
   },
   "themeToast": {

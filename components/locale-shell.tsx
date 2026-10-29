@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { connection } from "next/server";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -9,7 +10,8 @@ import { sectionPaths, type Locale } from "@/lib/i18n";
 // Chrome compartido del sitio (header, main, footer y toast de tema) para
 // que el layout de idioma y la página de error 404 compongan exactamente
 // la misma estructura sin duplicar lógica.
-export function LocaleShell({ locale, children }: { locale: Locale; children: ReactNode }) {
+export async function LocaleShell({ locale, children }: { locale: Locale; children: ReactNode }) {
+  await connection();
   const dictionary = getDictionary(locale);
   const navigation = sectionPaths.map((section) => ({
     ...section,
