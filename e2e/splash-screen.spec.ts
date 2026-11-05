@@ -56,9 +56,14 @@ test.describe("splash screen de carga", () => {
       (
         window as unknown as { __splashTrace: typeof trace }
       ).__splashTrace = trace;
-      return splash ? getComputedStyle(splash).animationName : "";
+      // La animación de entrada (fade-in) vive en la imagen, no en la capa:
+      // la capa debe permanecer opaca durante toda la aparición.
+      const img = splash?.querySelector("img");
+      return img ? getComputedStyle(img).animationName : "";
     });
-    // El markup del servidor entra con la animación de aparición.
+    // El markup del servidor entra con la animación de aparición. Desde el
+    // cambio "corregir-entrada-splash" el fade-in vive en la imagen (la
+    // capa permanece opaca para no transparentar el contenido detrás).
     expect(entryAnimation).toBe("splash-fade-in");
 
     // La imagen de bienvenida es public/inicio.png (decorativa: alt vacío).
@@ -124,6 +129,45 @@ test.describe("splash screen de carga", () => {
       .reverse()
       .find((s) => s.progress.includes("%"));
     expect(lastProgress?.progress).toContain("100 %");
+  });
+
+  // Regresión del bug: la animación de entrada NUNCA se aplica a la capa.
+  // Si el fade-in volviera a `.splash--apareciendo`, su background-color se
+  // transparentaría durante los 300 ms de aparición y el contenido del sitio
+  // se vería detrás — este test lo detectaría.
+  test("la capa no se transparenta durante la aparición", async ({ page }) => {
+    // Sostiene la carga para que la fase `apareciendo` sea observable.
+    await delayLoad(page, 1500);
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const splash = page.getByTestId("splash-screen");
+    await expect(splash).toBeVisible();
+
+    // Mientras la capa está en su fase de aparición: opacidad siempre 1 y
+    // background opaco (token --background, sin canal alfa).
+    const state = await page.evaluate(() => {
+      const el = document.querySelector('[data-testid="splash-screen"]');
+      if (!el) return null;
+      const cs = getComputedStyle(el);
+      return {
+        cls: el.className,
+        opacity: cs.opacity,
+        backgroundColor: cs.backgroundColor,
+      };
+    });
+    expect(state).not.toBeNull();
+    expect(state!.cls).toContain("splash--apareciendo");
+    expect(state!.opacity).toBe("1");
+    // rgb(...) sin cuarto componente = opacidad 100 %.
+    expect(state!.backgroundColor).toMatch(/^rgb\(\d+, \d+, \d+\)$/);
+
+    // Y la animación de entrada corre en la imagen, no en la capa.
+    const imgAnimation = await splash
+      .locator("img")
+      .evaluate((el) => getComputedStyle(el).animationName);
+    expect(imgAnimation).toBe("splash-fade-in");
+
+    await expect(splash).toBeHidden({ timeout: 12000 });
   });
 
   test("recarga dentro de la misma sesión no vuelve a mostrar el splash", async ({
@@ -197,6 +241,9 @@ test.describe("splash screen de carga", () => {
     await expect(splash).toBeVisible();
     // Sin transición de opacidad: CSS desactiva las animaciones del splash.
     await expect(splash).toHaveCSS("animation-name", "none");
+    // El fade-in de entrada vive en la imagen: reduced-motion también la
+    // desactiva para que no haya fundido en el primer frame.
+    await expect(splash.locator("img")).toHaveCSS("animation-name", "none");
 
     // El indicador sigue actualizando su valor (sin animaciones).
     const first = await page.getByTestId("splash-progress").textContent();

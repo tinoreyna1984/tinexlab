@@ -356,7 +356,20 @@
     line-height: 1;
   }
 
+  /* Fase de aparición: la CAPA no anima su opacidad (si lo hiciera, su
+     background-color se transparentaría y el contenido del sitio se vería
+     detrás durante los 300 ms de entrada). El fondo queda opaco desde el
+     primer pintado; el fade-in vive en los hijos, abajo. */
   .splash--apareciendo {
+    opacity: 1;
+  }
+
+  /* Fade-in de entrada SOLO en imagen y porcentaje: duración (0.3s) y
+     keyframe DEBEN coincidir con fadeMs (300 ms) de components/
+     splash-screen.tsx. Al pasar a --cargando la regla desaparece y los
+     hijos quedan en su opacidad natural (1), sin estado residual. */
+  .splash--apareciendo .splash__image,
+  .splash--apareciendo .splash__progress {
     animation: splash-fade-in 0.3s ease-out both;
   }
 
@@ -438,6 +451,13 @@
   }
 
   .splash {
+    animation: none !important;
+  }
+
+  /* La animación de entrada ahora vive en los hijos (imagen y %): sin este
+     override, reduced-motion aún aplicaría el fade-in de 300 ms. */
+  .splash__image,
+  .splash__progress {
     animation: none !important;
   }
 }
